@@ -5,9 +5,7 @@ from uuid import UUID
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
-from psycopg import OperationalError
 
 from ..infra.repositorio_postgres import RepositorioPontosPostgres
 
@@ -19,14 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 repositorio = RepositorioPontosPostgres()
-
-
-@app.exception_handler(OperationalError)
-def banco_indisponivel(_, __):
-    return JSONResponse(
-        status_code=503,
-        content={"detail": "Banco de dados indisponível. Verifique DATABASE_URL e a rede."},
-    )
 
 
 class CompraEntrada(BaseModel):
