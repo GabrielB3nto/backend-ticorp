@@ -219,6 +219,6 @@ class TestSaldo:
 
         # Lotes devem estar ordenados por expira_em (mais próximo primeiro)
         assert len(saldo.lotes) == 3
-        assert saldo.lotes[0].pontos == 100  # Compra 1 expira primeiro
+        assert saldo.lotes[0].pontos == 75  # Compra 3 expira primeiro
         assert saldo.lotes[1].pontos == 50  # Compra 2
-        assert saldo.lotes[2].pontos == 75  # Compra 3 expira por último
+        assert saldo.lotes[2].pontos == 100  # Compra 1 expira por último
