@@ -1,0 +1,14 @@
+# sessão — não versiona
+docs/handoff.md
+.env
+
+# banco local
+*.db
+*.sqlite3
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
