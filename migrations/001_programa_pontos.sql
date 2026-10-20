@@ -1,4 +1,4 @@
--- Schema aditivo do Programa de Pontos. Não altera as tabelas de empréstimos.
+-- Schema inicial do Programa de Pontos. Execute em uma única transação.
 begin;
 
 create extension if not exists pgcrypto;

@@ -5,23 +5,21 @@
 
 ## Contexto
 
-O ambiente configurado expõe um PostgreSQL e já contém tabelas de outro domínio
-(empréstimos de equipamentos). O Programa de Pontos precisa persistir clientes e
-lançamentos imutáveis sem afetar esse domínio.
+O Programa de Pontos precisa de consultas rápidas de saldo, histórico
+auditável e dados persistentes para o painel administrativo.
 
 ## Decisão
 
-O Programa de Pontos usará novas tabelas PostgreSQL, com prefixo lógico próprio:
-clientes e lancamentos. A API acessará o banco por um repositório na camada de
-infraestrutura; a camada de aplicação permanece responsável por orquestrar as
-consultas e a API só traduz HTTP.
+O sistema usará PostgreSQL com as tabelas clientes e lancamentos. A primeira
+migration do projeto cria o schema, seus índices e uma proteção contra alteração
+ou remoção de lançamentos.
 
-As migrations serão aditivas. Os lançamentos terão bloqueio de atualização e
-remoção no banco para reforçar a imutabilidade definida no ADR-002.
+A camada de infraestrutura concentra o acesso ao banco; a API apenas traduz
+HTTP e a camada de domínio permanece independente de detalhes de persistência.
 
 ## Consequências
 
-- O banco existente de empréstimos permanece intacto.
-- O dashboard consulta agregações reais; quando não houver dados, retorna zero e
-  listas vazias.
-- A aplicação requer DATABASE_URL e o driver psycopg.
+- DATABASE_URL é obrigatória para consultas e lançamentos.
+- O dashboard retorna dados reais ou uma resposta 503 quando o banco não puder
+  ser alcançado.
+- Lançamentos respeitam a imutabilidade do ADR-002 também no banco.
