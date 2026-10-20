@@ -1,26 +1,17 @@
-# TiCorp — Programa de Pontos
+# Programa de Pontos
 
-Backend do sistema de fidelidade da rede varejista.
+Sistema de fidelidade da rede varejista. Substitui a planilha mantida
+manualmente pelo time de Marketing.
 
-## Executar localmente
+## Como rodar
 
-1. Execute: python -m pip install -r requirements.txt
-2. Defina PYTHONPATH=src.
-3. Execute: python -m uvicorn pontos.api.app:app --host 127.0.0.1 --port 5000
+<!-- a preencher quando houver o que rodar -->
 
-A API estará em http://127.0.0.1:5000. A verificação de saúde é GET /health.
+## Onde está o quê
 
-## Banco de dados
-
-Configure DATABASE_URL no arquivo .env e aplique
-migrations/001_programa_pontos.sql ao PostgreSQL antes de usar os endpoints que
-consultam dados.
-
-## Estrutura
-
-| Caminho | Conteúdo |
-|---|---|
-| docs/PRD.md | Requisitos de negócio |
-| docs/adr/ | Decisões de arquitetura |
-| migrations/ | Schema do Programa de Pontos |
-| src/pontos/ | Domínio, aplicação, infraestrutura e API |
+| caminho | o quê |
+|---------|-------|
+| `docs/PRD.md` | o que o negócio pediu |
+| `docs/adr/` | decisões de arquitetura e o porquê de cada uma |
+| `AGENTS.md` | como se trabalha neste repositório |
+| `static/index.html` | tela de consulta do atendente (contrato fixo) |
