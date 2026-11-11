@@ -1,6 +1,7 @@
 # sessão — não versiona
 docs/handoff.md
 .env
+.env.local
 
 # banco local
 *.db

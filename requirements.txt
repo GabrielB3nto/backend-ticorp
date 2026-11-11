@@ -1,4 +1,6 @@
 fastapi
 uvicorn
-pytest
+pytest==9.0.3
 httpx
+psycopg[binary]==3.3.7
+psycopg-binary==3.3.7

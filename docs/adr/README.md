@@ -10,3 +10,6 @@ raciocínio por trás da decisão.
 | 002 | Lançamentos imutáveis vs. saldo     | aceito |
 | 003 | Expiração de pontos em 12 meses     | aceito |
 | 004 | Entry point e health check HTTP      | aceito |
+| 005 | [Login tradicional](005-login-tradicional.md) | aceito; fluxo validado via conexão administrativa, role restrita pendente |
+| 006 | [Leitura de catálogo e próprios empréstimos](006-leitura-catalogo-emprestimos.md) | aceito; PostgreSQL remoto validado via conexão administrativa |
+| 007 | [Solicitação transacional](007-solicitacao-transacional.md) | aceito; PostgreSQL remoto validado via conexão administrativa |
